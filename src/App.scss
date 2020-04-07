@@ -1,0 +1,191 @@
+// Variables //
+
+    $colw: #fff;
+    $colg: #EBEAF3;
+    $colp: #778cfc;
+    $colb: #0E0C0D;
+    $cols: #f2be42;
+    $colT: #c1c6eb;
+
+// Variables //
+
+// Reset CSS //
+
+    *{
+        transition: all 0.4s ease-in-out;
+    }
+
+    html, body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        font-family: sans-serif;
+        background-color: $colw;
+    }
+
+    h1, h2, h3, h4, p, span{
+        margin: 0;
+        padding: 0;
+        font-family: 'roboto', sans-serif;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    a{
+        color: inherit;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+
+    nav{
+        box-shadow: none;
+    }
+
+    .App{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: $colw;
+    }
+
+    button{
+        outline: none;
+    }
+
+    .pages{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-color: $colg;
+    }
+
+    .equal{
+        width: 50%;
+    }
+
+    .cent{
+        width: 100%;
+    }
+
+    .pageContainer{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: row;
+    }
+
+// Reset CSS //
+
+// Register - Login //
+
+    #RegisterForm{
+        display: flex;
+        background-color: $colg;
+        width: 30vw;
+        height: 100vh;
+        align-items: center;
+        flex-direction: column;
+
+        #title{
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            margin-top: 45%;
+
+            #imageTitle{
+                display: block;
+                width: 20%;
+
+                img{
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            #textTitle{
+                display: flex;
+                align-items: center;
+                margin-left: 2%;
+
+                p{
+                  font-size: 1.6em;
+                }
+            }
+
+        }
+
+        form{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            label{
+                margin: 5% 0 2% 0;
+                font-size: 0.8em;
+                color: $colb;
+
+                &:first-child{
+                    margin-top: 15%;
+                }
+            }
+
+            .label-file{
+                background-color: $colw;
+                padding: 10px 5px 10px 10px;
+                border-radius: 60px;
+                margin: 0 0 7% 0;
+                color: lighten(black, 50%);
+                cursor: pointer;
+                outline: none;
+
+                &:hover{
+                    background-color: darken($colw, 10%);
+                }
+            }
+
+            input{
+                padding: 10px 5px 10px 10px;
+                border-radius: 60px;
+                border: 1px solid transparent;
+                outline: none;
+
+                &:focus{
+                    border: 1px solid $colp;
+                }
+            }
+
+            input[type=file]{
+                display: none;
+            }
+
+            button{
+                padding: 10px 0;
+                border: none;
+                border-radius: 60px;
+                background-color: $colp;
+                color: $colw;
+                cursor: pointer;
+                outline: none;
+
+                &:hover{
+                    background-color: lighten($colp, 10%);
+                }
+            }
+        }
+    }
+
+// Register - Login //
