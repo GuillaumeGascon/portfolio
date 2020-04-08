@@ -75,7 +75,7 @@ button {
   flex-direction: row;
 }
 
-#RegisterForm {
+#formStyle {
   position: relative;
   display: flex;
   background-color: #EBEAF3;
@@ -84,75 +84,80 @@ button {
   align-items: center;
   flex-direction: column;
 }
-#RegisterForm #errorHandler {
+#formStyle #errorHandler {
   position: absolute;
   display: flex;
   width: 50%;
+  top: 10%;
   flex-direction: row;
   align-items: center;
-  top: 10%;
   transform: translateY(-150px);
   opacity: 0;
 }
-#RegisterForm #errorHandler .errorIcon {
+#formStyle #errorHandler .errorIcon {
   font-size: 1.4em;
   color: #0092ff;
   margin-right: 5%;
 }
-#RegisterForm #errorHandler .errorText {
+#formStyle #errorHandler .errorText {
   font-size: 0.9em;
   font-style: italic;
   font-weight: 600;
   color: #205082;
 }
-#RegisterForm #title {
+#formStyle .logTitle {
+  margin-top: 50%;
+}
+#formStyle .regTitle {
+  margin-top: 33%;
+}
+#formStyle #title {
   display: flex;
   width: 50%;
   justify-content: center;
-  margin-top: 40%;
   padding-bottom: 5%;
   border-bottom: 1px solid #dcdaea;
 }
-#RegisterForm #title #imageTitle {
+#formStyle #title #imageTitle {
   display: block;
   width: 30%;
 }
-#RegisterForm #title #imageTitle img {
+#formStyle #title #imageTitle img {
   display: block;
   width: 100%;
 }
-#RegisterForm #title #textTitle {
+#formStyle #title #textTitle {
   display: flex;
   align-items: center;
   margin-left: 2%;
 }
-#RegisterForm #title #textTitle p {
+#formStyle #title #textTitle p {
   color: #c1c6eb;
   line-height: 1.1em;
   font-size: 1.6em;
   font-weight: 800;
 }
-#RegisterForm #title #textTitle p b {
+#formStyle #title #textTitle p b {
   color: #EBEAF3;
   text-transform: uppercase;
   text-shadow: 1px 0 0 #c1c6eb, -1px 0 0 #c1c6eb, 0 1px 0 #c1c6eb, 0 -1px 0 #c1c6eb, 0.5px 0.5px #c1c6eb, -0.5px -0.5px 0 #c1c6eb, 0.5px -0.5px 0 #c1c6eb, -0.5px 0.5px 0 #c1c6eb;
 }
-#RegisterForm form {
+#formStyle form {
   width: 50%;
   display: flex;
   flex-direction: column;
 }
-#RegisterForm form label {
+#formStyle form label {
   display: flex;
   flex-direction: row;
   margin: 5% 0 2% 0;
   font-size: 0.8em;
   color: #2e2d35;
 }
-#RegisterForm form label:first-child {
+#formStyle form label:first-child {
   margin-top: 10%;
 }
-#RegisterForm form .label-file {
+#formStyle form .labelFile {
   display: inline;
   background-color: #fff;
   padding: 10px 5px 10px 10px;
@@ -163,26 +168,29 @@ button {
   cursor: pointer;
   outline: none;
 }
-#RegisterForm form .label-file:hover {
+#formStyle form .labelFile:hover {
   background-color: #e6e6e6;
   border: 1px solid #205082;
 }
-#RegisterForm form input {
+#formStyle form input {
   padding: 10px 5px 10px 10px;
   border-radius: 60px;
   border: 1px solid transparent;
   outline: none;
 }
-#RegisterForm form input:focus {
+#formStyle form input:focus {
   border: 1px solid #205082;
 }
-#RegisterForm form input:hover {
+#formStyle form input:hover {
   border: 1px solid #b4d0ed;
 }
-#RegisterForm form input[type=file] {
+#formStyle form .logPass {
+  margin-bottom: 7%;
+}
+#formStyle form input[type=file] {
   display: none;
 }
-#RegisterForm form button {
+#formStyle form button {
   padding: 10px 0;
   border: none;
   border-radius: 60px;
@@ -191,8 +199,28 @@ button {
   cursor: pointer;
   outline: none;
 }
-#RegisterForm form button:hover {
+#formStyle form button:hover {
   background-color: #2a69ab;
+}
+#formStyle #downLinkForm {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  align-items: center;
+  margin-top: 7%;
+  width: 50%;
+}
+#formStyle #downLinkForm a {
+  color: #c1c6eb;
+}
+#formStyle #downLinkForm a:hover {
+  color: #205082;
+}
+#formStyle .loginDownLink {
+  justify-content: space-evenly;
+}
+#formStyle .registerDownLink {
+  justify-content: center;
 }
 
 #show {

@@ -92,7 +92,7 @@
 
 // Register - Login //
 
-    #RegisterForm{
+    #formStyle{
         position: relative;
         display: flex;
         background-color: $colg;
@@ -105,9 +105,9 @@
             position: absolute;
             display: flex;
             width: 50%;
+            top: 10%;
             flex-direction: row;
             align-items: center;
-            top: 10%;
             transform: translateY(-150px);
             opacity: 0;
 
@@ -125,11 +125,18 @@
             }
         }
 
+        .logTitle{
+            margin-top: 50%; 
+        }
+
+        .regTitle{
+            margin-top: 33%;
+        }
+
         #title{
             display: flex;
             width: 50%;
             justify-content: center;
-            margin-top: 40%;
             padding-bottom: 5%;
             border-bottom: 1px solid darken($colg, 5%);
 
@@ -181,7 +188,7 @@
                 }
             }
 
-            .label-file{
+            .labelFile{
                 display: inline;
                 background-color: $colw;
                 padding: 10px 5px 10px 10px;
@@ -213,6 +220,10 @@
                 }
             }
 
+            .logPass{
+                margin-bottom: 7%;
+            }
+
             input[type=file]{
                 display: none;
             }
@@ -231,6 +242,33 @@
                 }
             }
         }
+
+        #downLinkForm{
+            display: flex;
+            flex-direction: row;
+            font-size: 0.8em;
+            align-items: center;
+            margin-top: 7%;
+            width: 50%;
+
+            a{
+                color: $colc;
+
+                &:hover{
+                    color: $colp;
+                }
+            }
+
+        }
+
+        .loginDownLink{
+            justify-content: space-evenly;
+        }
+
+        .registerDownLink{
+            justify-content: center;
+        }
+        
     }
 
     #show{

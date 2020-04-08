@@ -55,7 +55,7 @@ class Register extends Component {
         var d = new Date();
         var n = d.getHours();
 
-        if(n >= 22 || n <= 7){
+        if(n >= 23 || n <= 7){
           const x = Math.floor((Math.random() * this.state.count) + 1);
 
           this.setState({x: x}, () => {
