@@ -76,12 +76,34 @@ button {
 }
 
 #RegisterForm {
+  position: relative;
   display: flex;
   background-color: #EBEAF3;
   width: 30vw;
   height: 100vh;
   align-items: center;
   flex-direction: column;
+}
+#RegisterForm #errorHandler {
+  position: absolute;
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  align-items: center;
+  top: 10%;
+  transform: translateY(-150px);
+  opacity: 0;
+}
+#RegisterForm #errorHandler .errorIcon {
+  font-size: 1.4em;
+  color: #0092ff;
+  margin-right: 5%;
+}
+#RegisterForm #errorHandler .errorText {
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: 600;
+  color: #205082;
 }
 #RegisterForm #title {
   display: flex;
@@ -170,6 +192,43 @@ button {
   outline: none;
 }
 #RegisterForm form button:hover {
+  background-color: #2a69ab;
+}
+
+#show {
+  position: relative;
+  width: 70vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: none;
+}
+#show #showCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 100vh;
+  background-color: rgba(32, 80, 130, 0.45);
+}
+#show #showCover button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 5%;
+  right: 5%;
+  font-size: 2em;
+  font-weight: 600;
+  color: #fff;
+  background-color: #205082;
+  border: none;
+  padding: 20px;
+  border-radius: 60px;
+  cursor: pointer;
+}
+#show #showCover button:hover {
   background-color: #2a69ab;
 }
 

@@ -93,12 +93,37 @@
 // Register - Login //
 
     #RegisterForm{
+        position: relative;
         display: flex;
         background-color: $colg;
         width: 30vw;
         height: 100vh;
         align-items: center;
         flex-direction: column;
+
+        #errorHandler{
+            position: absolute;
+            display: flex;
+            width: 50%;
+            flex-direction: row;
+            align-items: center;
+            top: 10%;
+            transform: translateY(-150px);
+            opacity: 0;
+
+            .errorIcon{
+                font-size: 1.4em;
+                color: $cols;
+                margin-right: 5%;
+            }
+
+            .errorText{
+                font-size: 0.9em;
+                font-style: italic;
+                font-weight: 600;
+                color: $colp;
+            }
+        }
 
         #title{
             display: flex;
@@ -200,6 +225,46 @@
                 color: $colw;
                 cursor: pointer;
                 outline: none;
+
+                &:hover{
+                    background-color: lighten($colp, 10%);
+                }
+            }
+        }
+    }
+
+    #show{
+        position: relative;
+        width: 70vw;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: none;
+
+        #showCover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70vw;
+            height: 100vh;
+            background-color: rgba($colp, 0.45);
+
+            button{
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: 5%;
+                right: 5%;
+                font-size: 2em;
+                font-weight: 600;
+                color: $colw;
+                background-color: $colp;
+                border: none;
+                padding: 20px;
+                border-radius: 60px;
+                cursor: pointer;
 
                 &:hover{
                     background-color: lighten($colp, 10%);

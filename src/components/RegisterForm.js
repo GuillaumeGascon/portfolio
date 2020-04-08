@@ -27,10 +27,28 @@ class RegisterForm extends Component {
       document.cookie = name + "=" + value + expires + "; path=/";
   }
 
+  handlesubmit(e){
+    e.preventDefault();
+    
+    const files = document.querySelector('[type=file]').files
+
+    console.log(files);
+  }
+
 
   render() {
     return (
       <div id='RegisterForm'>
+
+        <div id="errorHandler">
+            <div className="errorIcon">
+                <IoMdWarning/>                    
+            </div>
+
+            <div className="errorText">
+                <p id="innerText"></p>
+            </div>
+        </div>
 
         <div id="title">
             <div id="imageTitle">
@@ -124,20 +142,46 @@ class RegisterForm extends Component {
                 })}
           />
           <label>Avatar&nbsp;<IoMdCheckmarkCircleOutline id='checkAvatar' style={{display: 'none', color: 'green'}}/></label>
-          <label for="file" class="label-file" id='label-file'>{this.state.file}</label>
+          <label htmlFor="file" className="label-file" id='label-file'>{this.state.file}</label>
           <input 
                 id='file' 
                 type="file" 
                 name="avatar"
-                value={this.state.avatar}
-                onChange={event => this.setState({avatar: event.target.value}, () => {
-                  console.log(this.state.avatar)
-                  document.getElementById('label-file').style.border = '1px solid green';
-                  document.getElementById('checkAvatar').style.display = 'block';
-                })}
+                onChange={() => {
+
+                  const files = document.querySelector('[type=file]').files;
+
+                  const formData = new FormData();
+
+                  const file = files[0]
+
+                  formData.append('files[]', file)
+
+                  this.setState({avatar: formData}, () => {
+
+                    if(files[0].type === 'image/jpeg' || files[0].type === 'image/png'){
+
+                      this.setState({file: files[0].name}, () => {
+  
+                        document.getElementById('label-file').style.border = '1px solid green';
+                        document.getElementById('checkAvatar').style.display = 'block';
+  
+                      })
+  
+                    }else{
+  
+                      document.getElementById('label-file').style.border = '1px solid red';
+                      document.getElementById('checkAvatar').style.display = 'none';
+  
+                    }
+
+                  })
+
+                  
+                }}
           />
 
-          <button>Register</button>
+          <button onClick={this.handlesubmit}>Register</button>
         </form>
 
       </div>
