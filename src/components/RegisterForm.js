@@ -161,7 +161,7 @@ class RegisterForm extends Component {
                         password: password,
                         email: emailHash,
                         avatar: this.state.avatar,
-    
+                        banner: 'http://localhost:4200/images/banner/default.jpg',    
                       });
                       
                     })
@@ -205,16 +205,15 @@ class RegisterForm extends Component {
 
     const session = this.readCookie('session');
 
-        this.setState({session: session}, () =>{
+    this.setState({session: session}, () =>{
 
-            if(this.state.session === true){
-               
-                window.location = 'http://localhost:3000/';
+        if(this.state.session === true){
+            
+            window.location = 'http://localhost:3000/';
 
-            }
+        }
 
-        })
-
+    })
   }
 
   render() {
@@ -323,9 +322,10 @@ class RegisterForm extends Component {
                 })}
           />
           <label>Avatar&nbsp;<IoMdCheckmarkCircleOutline id='checkAvatar' style={{display: 'none', color: 'green'}}/></label>
-          <label htmlFor="file" className="labelFile" id='label-file'>{this.state.file}</label>
+          <label htmlFor="file" className="labelFile" id='labelFile'>{this.state.file}</label>
           <input 
-                id='file' 
+                id='file'
+                className='croppieBind' 
                 type="file" 
                 name="avatar"
                 onChange={() => {
@@ -335,6 +335,8 @@ class RegisterForm extends Component {
                   const formData = new FormData();
 
                   const file = files[0]
+
+                  console.log(file);
 
                   formData.append('files[]', file)
 
@@ -346,7 +348,7 @@ class RegisterForm extends Component {
 
                       this.setState({formData: formData}, () => {
 
-                        document.getElementById('label-file').style.border = '1px solid green';
+                        document.getElementById('labelFile').style.border = '1px solid green';
                         document.getElementById('checkAvatar').style.display = 'block';
   
                       })
@@ -357,7 +359,7 @@ class RegisterForm extends Component {
 
                     }else{
   
-                      document.getElementById('label-file').style.border = '1px solid red';
+                      document.getElementById('labelFile').style.border = '1px solid red';
                       document.getElementById('checkAvatar').style.display = 'none';
   
                     }

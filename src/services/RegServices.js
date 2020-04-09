@@ -8,6 +8,7 @@ class RegService{
             Password: data.password,
             Email: data.email,
             Avatar: data.avatar,
+            Banner: data.banner,
         })
         .then(function (response) {
             console.log(response);

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "croppie": "^2.6.4",
     "fs": "^0.0.1-security",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
