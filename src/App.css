@@ -109,7 +109,7 @@ button {
   margin-top: 50%;
 }
 #formStyle .regTitle {
-  margin-top: 10%;
+  margin-top: 33%;
 }
 #formStyle #title {
   display: flex;
@@ -215,6 +215,46 @@ button {
 }
 #formStyle #downLinkForm a:hover {
   color: #205082;
+}
+#formStyle #sideCrop {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 25vw;
+  height: 100%;
+  z-index: 40;
+  left: 100vw;
+  background-color: rgba(235, 234, 243, 0.55);
+}
+#formStyle #sideCrop h3 {
+  margin-bottom: 4%;
+  width: 40%;
+  text-align: center;
+  color: #2e2d35;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 4%;
+  border-bottom: 1px solid rgba(235, 234, 243, 0.3);
+}
+#formStyle #sideCrop #cropContainer {
+  display: block;
+  width: 80%;
+  height: 43%;
+}
+#formStyle #sideCrop button {
+  background-color: #205082;
+  padding: 12px 0;
+  width: 50%;
+  border: none;
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+}
+#formStyle #sideCrop button:hover {
+  background-color: #2a69ab;
 }
 #formStyle .loginDownLink {
   justify-content: space-evenly;
