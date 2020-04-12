@@ -163,27 +163,22 @@ class RegisterForm extends Component {
 
                     const emailHash = hash;
 
-                    Bcrypt.hash(username, salt, (err, hash) => {
-
-                      const userHash = hash;
-
-                      this.Services.sendData({
-                        username: userHash,
-                        password: password,
-                        email: emailHash,
-                        avatar: this.state.avatar,
-                        banner: 'http://localhost:4200/images/banner/default.jpg',    
-                      });
-                      
-                    })
+                    this.Services.sendData({
+                      username: username,
+                      password: password,
+                      email: emailHash,
+                      avatar: this.state.avatar,
+                      banner: 'http://localhost:4200/images/banner/default.jpg',    
+                    });               
 
                   })
 
                   console.log(`%c> Logged In, welcome [${this.state.username}]`, 'color: #0092ff');
 
                   this.writeCookie('session', true, 3);
-                  this.writeCookie('sessionUser', this.state.username, 3);
+                  this.writeCookie('sessionUser', username, 3);
                   this.writeCookie('sessionAvatar', this.state.avatar , 3);
+                  this.writeCookie('sessionBanner', 'http://localhost:4200/images/banner/default.jpg')
 
                   return new Promise(() => {
 
@@ -195,7 +190,7 @@ class RegisterForm extends Component {
                     req.open("POST", "http://localhost:4200/upload");
                     req.send(formData);
 
-                    window.location = 'http://localhost:3000/api/secret/AddProject';
+                    window.location = 'http://localhost:3000/api/secret/dashboard';
 
                   })
 
@@ -281,7 +276,7 @@ class RegisterForm extends Component {
 
     this.setState({session: session}, () =>{
 
-        if(this.state.session === true){
+        if(this.state.session === 'true' || this.state.session === true){
             
             window.location = 'http://localhost:3000/';
 
@@ -422,9 +417,7 @@ class RegisterForm extends Component {
 
                     const filename = files[0].name.split('.')[0]
 
-                    console.log(filename+'.png')
-
-                    this.setState({avatar: 'http://localhost:4200/images/i/'+files[0].name,
+                    this.setState({avatar: 'http://localhost:4200/images/i/'+filename+'.png',
                                   file: filename+'.png',
                                   type: files[0].type}, () => {
 

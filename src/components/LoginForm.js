@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {IoMdCheckmarkCircleOutline, IoMdWarning} from 'react-icons/io';
 import Axios from 'axios';
+import Bcrypt from 'bcryptjs';
 
 import logo from '../img/logo.png';
 
@@ -10,7 +11,11 @@ class RegisterForm extends Component {
     this.state = {
       username: '',
       password: '',
-
+      pwCrypt: '',
+      userCrypt: '',
+      avatar: '',
+      banner: '',
+      veriPass: '',
     }
 
     this.handlesubmit = this.handlesubmit.bind(this);
@@ -48,21 +53,88 @@ class RegisterForm extends Component {
   handlesubmit(e){
     e.preventDefault();
 
+    const text = document.getElementById('innerText');
+    const textContainer = document.getElementById('errorHandler');
+
+    if(this.state.username === '' || this.state.password ===''){
+
+      text.innerHTML = 'You must fill all the input !';
+      textContainer.style.opacity = 1;
+      textContainer.style.transform = 'translateY(0)';
+
+    }else{
+
+      const username = this.state.username.toLowerCase();
+  
+      Axios.post('http://localhost:4200/api/name', {
+            Username: username
+          })
+          .then(response => {
+
+            const data = response.data;
+
+            console.log(data.Username !== null)
+
+            if(data === null){
+
+              text.innerHTML = "This username doesn't exist";
+              textContainer.style.opacity = 1;
+              textContainer.style.transform = 'translateY(0)';
+
+            }else{
+              
+              this.setState({avatar: data.Avatar,
+                              banner: data.Banner,
+                              veriPass: data.Password}, () => {
+
+                Bcrypt.compare(this.state.password, this.state.veriPass, (err, res) => {
+
+                  console.log(res)
+
+                  if(res !== true){
+
+                    text.innerHTML = "Check username or password";
+                    textContainer.style.opacity = 1;
+                    textContainer.style.transform = 'translateY(0)';
+
+                  }else{
+
+                    console.log(`> Logged In, welcome [${this.state.username}]`)
+
+                    this.writeCookie('session', true, 3);
+                    this.writeCookie('sessionUser', this.state.username, 3);
+                    this.writeCookie('sessionAvatar', this.state.avatar , 3);
+                    this.writeCookie('sessionBanner', this.state.banner , 3);
+
+                    window.location = 'http://localhost:3000/api/secret/dashboard';
+
+                  }
+
+                })
+
+              })
+
+            }
+          })
+          .catch(err => console.log(err))
+
+    }
+
   }
 
   componentDidMount(){
 
     const session = this.readCookie('session');
 
-        this.setState({session: session}, () =>{
+    this.setState({session: session}, () =>{
 
-            if(this.state.session === true){
-               
-                window.location = 'http://localhost:3000/';
+        if(this.state.session === true){
+            
+            window.location = 'http://localhost:3000/';
 
-            }
+        }
 
-        })
+    })
 
   }
 

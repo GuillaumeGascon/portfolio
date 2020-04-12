@@ -6,9 +6,9 @@ import './index.css';
 
 import App from './App';
 
-import Register from './pages/Register';
+//import Register from './pages/Register'; //Uncomment to active register page
 import Login from './pages/Login';
-import AddProject from './pages/AddProjects';
+import Dashboard from './pages/Dashboard';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -17,8 +17,8 @@ ReactDOM.render(
         <div>
             <Route exact path='/' component={App} />
             <Route exact path='/api/secret/login' component={Login} />
-            <Route exact path="/api/secret/register" component={Register} />    
-            <Route exact path="/api/secret/AddProject" component={AddProject} />      
+            {/*<Route exact path="/api/secret/register" component={Register} />*/}  
+            <Route exact path="/api/secret/dashboard" component={Dashboard} />      
         </div>
     </Router>, 
     document.getElementById('root')

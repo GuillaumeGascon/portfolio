@@ -10,6 +10,7 @@ class Login extends Component {
     this.state = {
       x: 1,
       count: 1,
+      session: false,
     }
 
     this.switchBackground = this.switchBackground.bind(this)
@@ -40,50 +41,80 @@ class Login extends Component {
       })
     }
 
+  }
 
+  readCookie(name) {
+    var i, c, ca, nameEQ = name + "=";
+    ca = document.cookie.split(';');
+    for(i=0;i < ca.length;i++) {
+        c = ca[i];
+        while (c.charAt(0)===' ') {
+            c = c.substring(1,c.length);
+        }
+        if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length,c.length);
+        }
+    }
+    return '';
   }
 
   componentDidMount(){
 
-    axios.get('http://localhost:4200/api/background/count')
-    .then(response => {
-      
-      const data = response.data;
+    const session = this.readCookie('session');
 
-      this.setState({count: data - 1}, () => {
+    this.setState({session: session}, () =>{
 
-        var d = new Date();
-        var n = d.getHours();
+      console.log(this.state.session)
 
-        if(n >= 23 || n <= 7){
-          const x = Math.floor((Math.random() * this.state.count) + 1);
+        if(this.state.session === 'true' || this.state.session === true){
+            
+            window.location = 'http://localhost:3000/';
 
-          this.setState({x: x}, () => {
-
-            const button = document.getElementById('showButton')
-
-            button.style.display = 'flex'
-
-            const background = document.getElementById('show')
-
-            background.style.backgroundImage = "url('http://localhost:4200/images/bg/background-"+x+".jpg')"
-
-          })
         }else{
 
-          const background = document.getElementById('show')
+          axios.get('http://localhost:4200/api/background/count')
+          .then(response => {
+            
+            const data = response.data;
 
-          const button = document.getElementById('showButton')
+            this.setState({count: data - 1}, () => {
 
-          button.style.display = 'none'
+              var d = new Date();
+              var n = d.getHours();
 
-          background.style.backgroundImage = "url('http://localhost:4200/images/background-y.jpg')"
+              if(n >= 23 || n <= 7){
+                const x = Math.floor((Math.random() * this.state.count) + 1);
+
+                this.setState({x: x}, () => {
+
+                  const button = document.getElementById('showButton')
+
+                  button.style.display = 'flex'
+
+                  const background = document.getElementById('show')
+
+                  background.style.backgroundImage = "url('http://localhost:4200/images/bg/background-"+x+".jpg')"
+
+                })
+              }else{
+
+                const background = document.getElementById('show')
+
+                const button = document.getElementById('showButton')
+
+                button.style.display = 'none'
+
+                background.style.backgroundImage = "url('http://localhost:4200/images/background-y.jpg')"
+
+              }
+            })
+
+          })
+          .catch(error => console.log(error))
 
         }
-      })
 
     })
-    .catch(error => console.log(error))
 
   }
   render() {

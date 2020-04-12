@@ -300,4 +300,242 @@ button {
   background-color: #2a69ab;
 }
 
+#dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+#dashMenu {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px 10px rgba(46, 45, 53, 0.5);
+  z-index: 20;
+  background-color: #fff;
+}
+#dashMenu #dashLogo {
+  display: block;
+  width: 2%;
+  margin-left: 2%;
+}
+#dashMenu #dashLogo img {
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+#dashMenu #dashLink {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 90%;
+  height: 100%;
+  margin-right: 2%;
+}
+#dashMenu #dashLink #menuLink {
+  display: flex;
+  flex-direction: row;
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  margin-right: 3%;
+}
+#dashMenu #dashLink #menuLink li {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 1.5em;
+  border-bottom: 2px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-right: 1px solid #dcdaea;
+}
+#dashMenu #dashLink #menuLink li:last-child {
+  border-right: none;
+}
+#dashMenu #dashLink #menuLink li:hover {
+  border-bottom: 2px solid #0092ff;
+}
+#dashMenu #dashLink #menuLink li:hover a {
+  color: #205082;
+}
+#dashMenu #dashLink #menuLink li a {
+  color: #2e2d35;
+}
+#dashMenu #dashLink #userLink {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 2%;
+}
+#dashMenu #dashLink #userLink p {
+  color: #2e2d35;
+  font-size: 0.8em;
+  margin-right: 2%;
+}
+#dashMenu #dashLink #userLink #avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 60px;
+  width: 45px;
+  border: 2px solid #0092ff;
+  margin-left: 5%;
+}
+#dashMenu #dashLink #userLink #avatarContainer img {
+  display: block;
+  width: 100%;
+}
+#dashMenu #dashLink button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 60px;
+  background-color: #205082;
+  color: #fff;
+  cursor: pointer;
+}
+#dashMenu #dashLink button:hover {
+  background-color: #2a69ab;
+}
+
+#dashBanner {
+  display: block;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 10;
+  position: relative;
+}
+#dashBanner:hover #labelBanner {
+  opacity: 1;
+}
+#dashBanner #labelBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #c1c6eb;
+  opacity: 0;
+  background-color: rgba(46, 45, 53, 0.5);
+  cursor: pointer;
+  z-index: 12;
+}
+#dashBanner input {
+  display: none;
+}
+#dashBanner .cover {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(32, 80, 130, 0.5);
+  z-index: 10;
+}
+#dashBanner img {
+  width: 100%;
+  display: block;
+  z-index: 5;
+}
+
+#dashContent {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+#dashContent #dashProjectCount {
+  width: 30vw;
+  border-right: 1px solid #EBEAF3;
+  margin: 0;
+  padding: 0;
+}
+#dashContent #dashProjectCount #projectCountContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+#dashContent #dashProjectCount #projectCountContainer #projectCountCircle {
+  position: relative;
+  display: flex;
+  width: 25%;
+  background-color: transparent;
+  margin-top: 5%;
+  border: 3px solid #205082;
+  border-radius: 150px;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 10px #EBEAF3;
+}
+#dashContent #dashProjectCount #projectCountContainer #projectCountCircle img {
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+#dashContent #dashProjectCount #projectCountContainer #projectCountCircle #countContainer {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background-color: rgba(46, 45, 53, 0.3);
+}
+#dashContent #dashProjectCount #projectCountContainer #projectCountCircle #countContainer p {
+  color: #fff;
+  font-size: 3.5em;
+}
+#dashContent #dashProjectCount #projectCountContainer #countUser {
+  display: inline-block;
+  width: 40%;
+  margin-top: 4%;
+  border-top: 1px solid #EBEAF3;
+  padding-top: 2%;
+}
+#dashContent #dashProjectCount #projectCountContainer #countUser #countUsername {
+  color: #c1c6eb;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+#dashContent #dashProjectCount #projectCountContainer #countUser #countSentence {
+  color: #c7c6ce;
+  text-align: center;
+  font-weight: 200;
+}
+#dashContent #dashProjectCount #projectCountContainer #projectCountCat {
+  display: flex;
+  background-color: #F0F0F3;
+  width: 70%;
+  height: 55%;
+  margin-top: 5%;
+  border-radius: 50px;
+  box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #d9d9d9, inset -10px -10px 10px 0 #d9d9d9, inset 10px 10px 10px 0 #fff;
+}
+#dashContent #dashAnalytics {
+  width: 70vw;
+}
+#dashContent #dashAnalytics .equal {
+  width: 100%;
+  height: 50%;
+  border-bottom: 1px solid #EBEAF3;
+}
+
 /*# sourceMappingURL=App.css.map */
