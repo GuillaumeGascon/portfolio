@@ -39,38 +39,69 @@ class Counter extends Component {
     componentDidMount(){
         let visited = this.readCookie('visitorVisit');
         let count = this.readCookie('visitorCount');
+        let total = this.readCookie('visitorTotal');
+        let lastVisit = this.readCookie('visitorDate');
         const x = Math.floor((Math.random() * (10*90*100*90*200*90*100)) + 1);
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mm + '/' + yyyy;
 
         if(visited === ''){
             
             const id = '#'+x+'guilgn';
+            count = 1;
 
             this.writeCookie('visitorId', id, 10)
             this.writeCookie('visitorVisit', true, 10);
-            count = 1;
             this.writeCookie('visitorCount', count, 10);
-
-            console.log('this is your ' + count + ' time id: ' + this.readCookie('visitorId'));
+            this.writeCookie('visitorTotal', count, 10);
+            this.writeCookie('visitorDate', today, 10);
 
             this.Counting.sendData({
                 ID: id,
-                Count: count,  
+                Count: count, 
+                TotalCount: count, 
+                Date: today,
             });  
 
         }else{
             
-            console.log('welcome back '+ this.readCookie('visitorId'))
-            count++;
-            this.writeCookie('visitorCount', count, 10);
+            total++
 
-            Axios.post('http://localhost:4200/api/visitor/update', {
-                ID: this.readCookie('visitorId'),
-                update: {
-                    Count: count,
-                }
-            })
-            .then(response => console.log(response))
-            .catch(err => console.log(err))
+            if(lastVisit === today){
+                count++;
+                this.writeCookie('visitorCount', count, 10);
+
+                Axios.post('http://localhost:4200/api/visitor/update', {
+                    ID: this.readCookie('visitorId'),
+                    update: {
+                        Count: count,
+                        TotalCount: total,
+                        Date: today,
+                    }
+                })
+                .then(response => console.log('welcome back '+ this.readCookie('visitorId')))
+                .catch(err => console.log(err))
+            }else{
+                count = 1;
+                this.writeCookie('visitorCount', count, 10);
+
+                Axios.post('http://localhost:4200/api/visitor/update', {
+                    ID: this.readCookie('visitorId'),
+                    update: {
+                        Count: count,
+                        TotalCount: total,
+                        Date: today,
+                    }
+                })
+                .then(response => console.log('welcome back '+ this.readCookie('visitorId')))
+                .catch(err => console.log(err))
+            }
+
 
         }
 

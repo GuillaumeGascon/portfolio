@@ -75,26 +75,28 @@ class DashBanner extends Component {
                         this.setState({formData: formData,
                                         link: 'http://localhost:4200/images/banner/'+files[0].name}, () => {
 
-                            return new Promise((resolve, reject) => {
-                                const req = new XMLHttpRequest();
+                                            this.writeCookie('sessionBanner', this.state.link);
 
-                                req.open('POST', 'http://localhost:4200/banner');
-                                req.send(this.state.formData);
-
-                                this.writeCookie('sessionBanner', this.state.link);
-
-                                Axios.post('http://localhost:4200/api/users/update/', {
-                                    Username: this.readCookie('sessionUser'),
-                                    update: {
-                                        Banner: this.state.link,
-                                    }
-                                })
-                                .then(() => {
-
-                                    window.location.reload();
-                                })
-                                .catch(err => console.log(err))
+                            Axios.post('http://localhost:4200/api/users/update', {
+                                Username: this.readCookie('sessionUser').toLowerCase(),
+                                update: {
+                                    Banner: this.state.link,
+                                }
                             })
+                            .then((resp) => {
+                                console.log(resp)
+
+                                return new Promise((resolve, reject) => {
+                                    const req = new XMLHttpRequest();
+    
+                                    req.open('POST', 'http://localhost:4200/banner');
+                                    req.send(this.state.formData);
+    
+                                    //window.location.reload();
+
+                                })
+                            })
+                            .catch(err => console.log(err))
 
                         })
                         
