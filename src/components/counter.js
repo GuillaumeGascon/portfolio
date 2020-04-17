@@ -75,6 +75,7 @@ class Counter extends Component {
             if(lastVisit === today){
                 count++;
                 this.writeCookie('visitorCount', count, 10);
+                this.writeCookie('visitorTotal', total, 10);
 
                 Axios.post('http://localhost:4200/api/visitor/update', {
                     ID: this.readCookie('visitorId'),
@@ -88,6 +89,7 @@ class Counter extends Component {
                 .catch(err => console.log(err))
             }else{
                 count = 1;
+                this.writeCookie('visitorDate', today, 10)
                 this.writeCookie('visitorCount', count, 10);
 
                 Axios.post('http://localhost:4200/api/visitor/update', {

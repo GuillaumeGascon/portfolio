@@ -3,7 +3,7 @@ import {IoMdCheckmarkCircleOutline, IoMdWarning} from 'react-icons/io';
 import Axios from 'axios';
 import Bcrypt from 'bcryptjs';
 
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png';
 
 class RegisterForm extends Component {
   constructor(){
@@ -106,7 +106,7 @@ class RegisterForm extends Component {
                     this.writeCookie('sessionAvatar', this.state.avatar , 3);
                     this.writeCookie('sessionBanner', this.state.banner , 3);
 
-                    window.location = 'http://localhost:3000/api/secret/dashboard';
+                    window.location = process.env.PUBLIC_URL+'/dir/secret/dashboard';
 
                   }
 
@@ -130,7 +130,7 @@ class RegisterForm extends Component {
 
         if(this.state.session === true){
             
-            window.location = 'http://localhost:3000/';
+            window.location = window.location.origin+'/';
 
         }
 

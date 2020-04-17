@@ -6,9 +6,9 @@ import ReactCrop from 'react-image-crop';
 
 import 'react-image-crop/dist/ReactCrop.css'
 
-import RegServices from '../services/RegServices';
+import RegServices from '../../services/RegServices';
 
-import logo from '../img/logo.png';
+import logo from '../../img/logo.png';
 
 class RegisterForm extends Component {
   constructor(){
@@ -33,7 +33,7 @@ class RegisterForm extends Component {
     }
 
     this.Services = new RegServices();
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.writeCookie = this.writeCookie.bind(this);
   }
 
@@ -190,7 +190,7 @@ class RegisterForm extends Component {
                     req.open("POST", "http://localhost:4200/upload");
                     req.send(formData);
 
-                    window.location = 'http://localhost:3000/api/secret/dashboard';
+                    window.location = process.env.PUBLIC_URL+'/dir/secret/dashboard';
 
                   })
 
@@ -278,7 +278,7 @@ class RegisterForm extends Component {
 
         if(this.state.session === 'true' || this.state.session === true){
             
-            window.location = 'http://localhost:3000/';
+            window.location = window.location.origin+'/';
 
         }
 

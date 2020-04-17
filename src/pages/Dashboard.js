@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import DashMenu from '../components/DashMenu';
-import DashBanner from '../components/DashBanner';
-import DashProjectCount from '../components/DashProjectCount';
+import DashMenu from '../components/dashboard/DashMenu';
+import DashBanner from '../components/dashboard/DashBanner';
+import DashProjectCount from '../components/dashboard/DashProjectCount';
+import DashVisit from '../components/dashboard/DashVisit';
 
 class Dashboard extends Component {
     constructor(){
@@ -33,7 +34,7 @@ class Dashboard extends Component {
 
             if(this.state.session === '' || this.state.session === null || this.state.session === false || this.state.session === 'false'){
                
-                window.location = 'http://localhost:3000/';
+                window.location = process.env.PUBLIC_URL+'/';
 
             }
 
@@ -59,6 +60,8 @@ class Dashboard extends Component {
                 <div id='dashAnalytics'>
 
                     <div className='equal'>
+
+                        <DashVisit></DashVisit>
 
                     </div>
 

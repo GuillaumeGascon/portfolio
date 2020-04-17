@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {FiRefreshCcw} from 'react-icons/fi'
 import axios from 'axios';
 
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/form/LoginForm'
 
 class Login extends Component {
   constructor(){

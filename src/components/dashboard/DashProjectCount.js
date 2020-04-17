@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MdLibraryAdd } from 'react-icons/md';
 import Axios from 'axios';
 
 class DashProjectCount extends Component {
@@ -42,6 +43,12 @@ class DashProjectCount extends Component {
     .catch(err => console.log(err))
 
   }
+  
+  location(event){
+    event.preventDefault();
+
+    window.location = window.location.origin+'/dir/secret/dashboard/new';
+  }
 
   componentDidMount(){
     this.getProjectCount()
@@ -50,26 +57,32 @@ class DashProjectCount extends Component {
   }
   render() {
     return (
-      <div id='projectCountContainer'>
+      <>
 
-        <div id='projectCountCircle'>
+        <div id='projectCountContainer'>
 
-          <img src={this.state.avatar} alt='avatar'/>
+          <div id='projectCountCircle'>
 
-          <div id='countContainer'>
-            <p>{this.state.projectCount}</p>
+            <img src={this.state.avatar} alt='avatar'/>
+
+            <div id='countContainer'>
+              <p>{this.state.projectCount}</p>
+            </div>
+
           </div>
 
-        </div>
+          <div id='countUser'>
 
-        <div id='countUser'>
+            <div id='countUsername'>
+              <p>{this.state.username}</p>
+            </div>
+            <div id='countSentence'>
+              <p>{this.state.projectCount} projects</p>
+            </div>
 
-          <div id='countUsername'>
-            <p>{this.state.username}</p>
           </div>
-          <div id='countSentence'>
-            <p>{this.state.projectCount} projects</p>
-          </div>
+
+          <button onClick={this.location}><MdLibraryAdd/>&nbsp;Add a project</button>
 
         </div>
 
@@ -77,7 +90,7 @@ class DashProjectCount extends Component {
 
         </div>
 
-      </div>
+      </>
     );
   }
 }

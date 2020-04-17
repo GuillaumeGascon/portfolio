@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MdDashboard, MdLibraryAdd, MdSettings, MdPowerSettingsNew } from 'react-icons/md';
 
 
-import Logo from '../img/logo.png';
+import Logo from '../../img/logo.png';
 
 class DashMenu extends Component {
   constructor(){
@@ -11,6 +11,7 @@ class DashMenu extends Component {
       session: false,
       username: '',
       avatar: '',
+      url: window.location.href,
     }
   }
 
@@ -40,7 +41,7 @@ class DashMenu extends Component {
         document.cookie = expire
     }
 
-    window.location = 'http://localhost:3000/';
+    window.location = window.location.origin+'/';
   }
 
   componentDidMount(){
@@ -48,8 +49,24 @@ class DashMenu extends Component {
     this.setState({session: this.readCookie('session'),
                   username: this.readCookie('sessionUser'),
                   avatar: this.readCookie('sessionAvatar')}, () => {
+                    
+                    if(this.state.url === window.location.origin+'/dir/secret/dashboard'){
+                      const el = document.getElementById('dash');
 
-                    return true
+                      el.style.borderBottom = '2px solid #0092ff'
+                    }else if(this.state.url === window.location.origin+'/dir/secret/dashboard/settings'){
+
+                      const el = document.getElementById('setting');
+
+                      el.style.borderBottom = '2px solid #0092ff'
+
+                    }else{
+
+                      const el = document.getElementById('addP');
+
+                      el.style.borderBottom = '2px solid #0092ff'
+
+                    }
 
                   })
 
@@ -66,14 +83,14 @@ class DashMenu extends Component {
         <div id='dashLink'>
 
           <ul id='menuLink'>
-            <li>
-              <a href='http://localhost:3000/api/secret/dashboard'><MdDashboard/></a>
+            <li id='dash'>
+              <a href={process.env.PUBLIC_URL+'/dir/secret/dashboard'}><MdDashboard/></a>
             </li>
-            <li>
-              <a href='http://localhost:3000/api/secret/dashboard/addProject'><MdLibraryAdd/></a>
+            <li id='addP'>
+              <a href={process.env.PUBLIC_URL+'/dir/secret/dashboard/new'}><MdLibraryAdd/></a>
             </li>
-            <li>
-              <a href='http://localhost:3000/api/secret/dashboard/settings'><MdSettings/></a>
+            <li id="setting">
+              <a href={process.env.PUBLIC_URL+'/dir/secret/dashboard/settings'}><MdSettings/></a>
             </li>
           </ul>  
 

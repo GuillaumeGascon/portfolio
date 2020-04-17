@@ -92,7 +92,7 @@ class DashBanner extends Component {
                                     req.open('POST', 'http://localhost:4200/banner');
                                     req.send(this.state.formData);
     
-                                    //window.location.reload();
+                                    window.location.reload();
 
                                 })
                             })

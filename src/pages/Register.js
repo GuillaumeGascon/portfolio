@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {FiRefreshCcw} from 'react-icons/fi'
 import axios from 'axios';
 
-import RegisterForm from '../components/RegisterForm'
+import RegisterForm from '../components/form/RegisterForm'
 
 class Register extends Component {
   constructor(){

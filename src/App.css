@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   transition: all 0.4s ease-in-out;
 }
@@ -73,6 +74,62 @@ button {
   width: 100vw;
   height: 100vh;
   flex-direction: row;
+}
+
+.react-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-top: 5px;
+  border-radius: 60px;
+}
+
+.react-tagsinput--focused {
+  border-color: #0092ff;
+}
+
+.react-tagsinput-tag {
+  background-color: #0092ff;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.react-tagsinput-tag:hover {
+  background-color: #33a8ff;
+}
+
+.react-tagsinput-remove {
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.react-tagsinput-tag a::before {
+  content: " ×";
+}
+
+.react-tagsinput-input {
+  background: transparent;
+  border: 0;
+  color: #777;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  margin-top: 1px;
+  outline: none;
+  padding: 5px;
+  width: auto;
 }
 
 #formStyle {
@@ -452,32 +509,48 @@ button {
   z-index: 5;
 }
 
+#dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #EBEAF3;
+}
+
 #dashContent {
   display: flex;
   width: 100vw;
-  height: 100%;
+  height: 80%;
   flex-direction: row;
   flex-wrap: nowrap;
 }
 #dashContent #dashProjectCount {
-  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20vw;
   border-right: 1px solid #EBEAF3;
   margin: 0;
   padding: 0;
 }
 #dashContent #dashProjectCount #projectCountContainer {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 46.5%;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
 }
 #dashContent #dashProjectCount #projectCountContainer #projectCountCircle {
   position: relative;
   display: flex;
-  width: 25%;
+  width: 35%;
   background-color: transparent;
-  margin-top: 5%;
   border: 3px solid #205082;
   border-radius: 150px;
   overflow: hidden;
@@ -520,22 +593,531 @@ button {
   text-align: center;
   font-weight: 200;
 }
-#dashContent #dashProjectCount #projectCountContainer #projectCountCat {
+#dashContent #dashProjectCount #projectCountContainer button {
+  margin-top: 3%;
   display: flex;
-  background-color: #F0F0F3;
-  width: 70%;
-  height: 55%;
-  margin-top: 5%;
-  border-radius: 50px;
-  box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #d9d9d9, inset -10px -10px 10px 0 #d9d9d9, inset 10px 10px 10px 0 #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 60px;
+  border: none;
+  background-color: #205082;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+#dashContent #dashProjectCount #projectCountContainer button:hover {
+  background-color: #2a69ab;
+}
+#dashContent #dashProjectCount #projectCountCat {
+  display: flex;
+  width: 95%;
+  height: 47.5%;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
 }
 #dashContent #dashAnalytics {
-  width: 70vw;
+  width: 80vw;
 }
 #dashContent #dashAnalytics .equal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 50%;
   border-bottom: 1px solid #EBEAF3;
+}
+#dashContent #dashAnalytics #containerChart {
+  display: flex;
+  width: 98%;
+  height: 93%;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#dashContent #dashAnalytics #containerChart h3 {
+  width: 20%;
+  margin-left: 3%;
+  margin-top: 12px;
+  font-size: 1.2em;
+  color: #c1c6eb;
+  font-weight: 400;
+  border-bottom: 1px solid #EBEAF3;
+  padding-bottom: 5px;
+}
+
+#settingsContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #EBEAF3;
+  width: 100vw;
+  height: 100vh;
+}
+#settingsContainer #componentContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 80%;
+}
+#settingsContainer #avatarUploadDash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 25vw;
+  height: 100%;
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer {
+  width: 95%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer #currAvatar {
+  overflow: hidden;
+  width: 27%;
+  border-radius: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #0092ff;
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer #currAvatar img {
+  display: block;
+  width: 100%;
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #205082;
+  border-radius: 60px;
+  border: none;
+  margin-top: 5%;
+  cursor: pointer;
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer label:hover {
+  background-color: #2a69ab;
+}
+#settingsContainer #avatarUploadDash #currAvatarContainer #avatarUp {
+  display: none;
+}
+#settingsContainer #avatarUploadDash #upAvatarContainer {
+  width: 95%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#settingsContainer #avatarUploadDash #upAvatarContainer #avatarCropDash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
+#settingsContainer #avatarUploadDash #upAvatarContainer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 60px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #205082;
+  color: #fff;
+  margin-top: 5%;
+}
+#settingsContainer #changeSettingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 75vw;
+  height: 100%;
+}
+#settingsContainer #changeSettingContainer #changeContainer {
+  width: 99%;
+  height: 62%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  height: 93%;
+  margin-left: 3%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form h3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form label {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 0 2% 0;
+  font-size: 0.8em;
+  color: #2e2d35;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form label:first-child {
+  margin-top: 0%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form input {
+  padding: 10px 5px 10px 10px;
+  border-radius: 60px;
+  border: 1px solid transparent;
+  background-color: #EBEAF3;
+  outline: none;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form input:focus {
+  border: 1px solid #205082;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form input:hover {
+  border: 1px solid #b4d0ed;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #205082;
+  border: none;
+  border-radius: 60px;
+  color: #fff;
+  margin-top: 10%;
+  cursor: pointer;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer form button:hover {
+  background-color: #2a69ab;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer #errorPass {
+  position: absolute;
+  width: 15%;
+  height: auto;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  top: 3%;
+  left: 42.5%;
+  z-index: 100;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+  transform: translateY(-100px);
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer #errorPass h4 {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #EBEAF3;
+  font-weight: 400;
+  color: #205082;
+  display: flex;
+  align-items: center;
+}
+#settingsContainer #changeSettingContainer #changeContainer #passwordFormContainer #errorPass p {
+  color: #ff9999;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  height: 93%;
+  margin-left: 10%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form h3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form label {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 0 2% 0;
+  font-size: 0.8em;
+  color: #2e2d35;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form label:first-child {
+  margin-top: 0%;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form input {
+  padding: 10px 5px 10px 10px;
+  border-radius: 60px;
+  border: 1px solid transparent;
+  background-color: #EBEAF3;
+  outline: none;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form input:focus {
+  border: 1px solid #205082;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form input:hover {
+  border: 1px solid #b4d0ed;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #205082;
+  border: none;
+  border-radius: 60px;
+  color: #fff;
+  margin-top: 10%;
+  cursor: pointer;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer form button:hover {
+  background-color: #2a69ab;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer #errorMail {
+  position: absolute;
+  width: 15%;
+  height: auto;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  top: 3%;
+  left: 42.5%;
+  z-index: 100;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+  transform: translateY(-100px);
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer #errorMail h4 {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #EBEAF3;
+  font-weight: 400;
+  color: #205082;
+  display: flex;
+  align-items: center;
+}
+#settingsContainer #changeSettingContainer #changeContainer #emailFormContainer #errorMail p {
+  color: #ff9999;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer {
+  width: 99%;
+  height: 32%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#settingsContainer #changeSettingContainer #deleteContainer #textDeleteContainer {
+  width: 40%;
+  height: 100%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #textDeleteContainer h4 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 1.2em;
+  color: #c1c6eb;
+  font-weight: 400;
+  border-bottom: 1px solid #EBEAF3;
+  padding-bottom: 2%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #textDeleteContainer p {
+  text-align: justify;
+  font-size: 1em;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 55%;
+  height: 100%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #deleteButton {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #deleteButton button {
+  padding: 10px 20px;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #deleteButton button:disabled {
+  background-color: #ff9999;
+  cursor: not-allowed;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound input[type=checkbox] {
+  display: none;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound input:checked + label span:before {
+  left: 26px;
+  transition: all 0.4s ease-in;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound input:checked + label span {
+  background-color: #0092ff;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 30%;
+  text-align: right;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #2e2d35;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label::before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label span {
+  background-color: red;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  border-radius: 14px;
+  height: 20px;
+  width: 44px;
+  transition: all 0.4s ease-in;
+  margin-bottom: 2%;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label span::before {
+  background-color: #fff;
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  transition: all 0.4s ease-in;
+}
+#settingsContainer #changeSettingContainer #deleteContainer #deleteButtonContainer #slideRound label span::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+#newProjectContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #EBEAF3;
+}
+#newProjectContainer #formProjectContainer {
+  display: flex;
+  width: 100vw;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+#newProjectContainer #formProjectContainer #formProjectCard {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 95%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0 rgba(46, 45, 53, 0.3);
+}
+#newProjectContainer #formProjectContainer #formProjectCard h4 {
+  width: 20%;
+  margin-left: 2%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #c1c6eb;
+  font-weight: 400;
+  border-bottom: 1px solid #EBEAF3;
+  padding-bottom: 10px;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject {
+  width: 100%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form {
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 85%;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul:first-child {
+  border-right: 1px solid #EBEAF3;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul #leftNewProject {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=App.css.map */
