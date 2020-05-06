@@ -1099,25 +1099,135 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
-#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul {
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100vw;
+  height: 90%;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  height: 85%;
+  height: 100%;
 }
-#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul:first-child {
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul:first-child {
   border-right: 1px solid #EBEAF3;
 }
-#newProjectContainer #formProjectContainer #formProjectCard #formProject form ul #leftNewProject {
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject {
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   width: 60%;
   height: 100%;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject label {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 0 2% 0;
+  font-size: 0.8em;
+  color: #2e2d35;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .labelInput {
+  padding: 10px 5px 10px 10px;
+  border-radius: 60px;
+  border: 1px solid #EBEAF3;
+  outline: none;
+  margin: 0;
+  color: #777;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .projectHide {
+  display: none;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .react-tagsinput {
+  border: 1px solid #EBEAF3;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .react-tagsinput .react-tagsinput-tag {
+  font-size: 0.8em;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .react-tagsinput:focus {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .react-tagsinput:hover {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .inputProject {
+  padding: 10px 5px 10px 10px;
+  border-radius: 60px;
+  border: 1px solid #EBEAF3;
+  outline: none;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .inputProject:focus {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #rightNewProject .inputProject:hover {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject label {
+  display: flex;
+  flex-direction: row;
+  margin: 5% 0 2% 0;
+  font-size: 0.8em;
+  color: #2e2d35;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .react-tagsinput {
+  border: 1px solid #EBEAF3;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .react-tagsinput .react-tagsinput-tag {
+  font-size: 0.8em;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .react-tagsinput:focus {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .react-tagsinput:hover {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .inputProject {
+  padding: 10px 5px 10px 10px;
+  border-radius: 60px;
+  border: 1px solid #EBEAF3;
+  outline: none;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .inputProject:focus {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formProjectColumn ul #leftNewProject .inputProject:hover {
+  border: 1px solid #0092ff;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10%;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formButtonContainer button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 60px;
+  background-color: #205082;
+  font-size: 1em;
+  color: #fff;
+  cursor: pointer;
+}
+#newProjectContainer #formProjectContainer #formProjectCard #formProject form #formButtonContainer button:hover {
+  background-color: #2a69ab;
 }
 
 /*# sourceMappingURL=App.css.map */

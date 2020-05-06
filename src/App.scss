@@ -1307,31 +1307,161 @@
                         display: flex;
                         flex-wrap: wrap;
 
-                        ul{ 
-                            margin: 0;
-                            padding: 0;
+                        #formProjectColumn{
                             display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            width: 50%;
-                            height: 85%;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            width: 100vw;
+                            height: 90%;
 
-                            &:first-child{
-                                border-right: 1px solid $colg;
-                            }
-
-                            #leftNewProject{
+                            ul{ 
                                 margin: 0;
                                 padding: 0;
                                 display: flex;
                                 flex-direction: column;
-                                width: 60%;
+                                align-items: center;
+                                width: 50%;
                                 height: 100%;
+    
+                                &:first-child{
+                                    border-right: 1px solid $colg;
+                                }
+
+                                #rightNewProject{
+                                    margin: 0;
+                                    padding: 0;
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 60%;
+                                    height: 100%;
+
+                                    label{
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin: 5% 0 2% 0;
+                                        font-size: 0.8em;
+                                        color: $colb;
+                                    }
+
+                                    .labelInput{
+                                        padding: 10px 5px 10px 10px;
+                                        border-radius: 60px;
+                                        border: 1px solid $colg;
+                                        outline: none;
+                                        margin: 0;
+                                        color: #777;
+                                    }
+
+                                    .projectHide{
+                                        display: none;
+                                    }
+
+                                    .react-tagsinput{
+                                        border: 1px solid $colg;
+
+                                        .react-tagsinput-tag{
+                                            font-size: 0.8em;
+                                        }
+
+                                        &:focus{
+                                            border: 1px solid $cols;
+                                        }
+                        
+                                        &:hover{
+                                            border: 1px solid $cols;
+                                        }
+                                    }
+
+                                    .inputProject{
+                                        padding: 10px 5px 10px 10px;
+                                        border-radius: 60px;
+                                        border: 1px solid $colg;
+                                        outline: none;
+                        
+                                        &:focus{
+                                            border: 1px solid $cols;
+                                        }
+                        
+                                        &:hover{
+                                            border: 1px solid $cols;
+                                        }
+                                    }
+                                }
+    
+                                #leftNewProject{
+                                    margin: 0;
+                                    padding: 0;
+                                    display: flex;
+                                    flex-direction: column;
+                                    width: 60%;
+                                    height: 100%;
+    
+                                    label{
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin: 5% 0 2% 0;
+                                        font-size: 0.8em;
+                                        color: $colb;
+                                    }
+
+                                    .react-tagsinput{
+                                        border: 1px solid $colg;
+
+                                        .react-tagsinput-tag{
+                                            font-size: 0.8em;
+                                        }
+
+                                        &:focus{
+                                            border: 1px solid $cols;
+                                        }
+                        
+                                        &:hover{
+                                            border: 1px solid $cols;
+                                        }
+                                    }
+
+                                    .inputProject{
+                                        padding: 10px 5px 10px 10px;
+                                        border-radius: 60px;
+                                        border: 1px solid $colg;
+                                        outline: none;
+                        
+                                        &:focus{
+                                            border: 1px solid $cols;
+                                        }
+                        
+                                        &:hover{
+                                            border: 1px solid $cols;
+                                        }
+                                    }
+                                }
                             }
                         }
 
-                        button{
-                            
+                        #formButtonContainer{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100vw;
+                            height: 10%;
+
+                            button{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px 40px;
+                                border: none;
+                                border-radius: 60px;
+                                background-color: $colp;
+                                font-size: 1em;
+                                color: $colw;
+                                cursor: pointer;
+
+                                &:hover{
+                                    background-color: lighten($colp, 10%);
+                                }
+                            }
+
                         }
                     }
                 }
