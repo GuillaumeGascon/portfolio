@@ -10,7 +10,7 @@ class ProjectServices{
             Banner: data.Banner,
             Logo: data.Logo,
             Description: data.Description,
-            Branding: data.Branding,
+            BrandingText: data.Branding,
             Mockup: data.Mockup,
             Link: data.Link,
         })

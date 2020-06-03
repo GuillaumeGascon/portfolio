@@ -16,7 +16,11 @@ class NewProjectForm extends Component {
             projectDesc: '',
             projectBranding: '',
             projectMockup: '',
-            projectLink: ''
+            projectLink: '',
+            logoData: '',
+            bannerData: '',
+            thumbData: '',
+            mockupData: '',
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,7 +32,7 @@ class NewProjectForm extends Component {
     handleSubmit(e){
         e.preventDefault();
 
-        /*this.Services.sendData({
+        this.Services.sendData({
             Name: this.state.projectName,
             Keywords: this.state.projectKeywords,
             Colors: this.state.projectColors,
@@ -39,7 +43,18 @@ class NewProjectForm extends Component {
             Branding: this.state.projectBranding,
             Mockup: this.state.projectMockup,
             Link: this.state.projectLink,
-        })*/
+        })
+
+        return new Promise((resolve, reject) => {
+            const req = new XMLHttpRequest();
+
+            req.open('POST', 'http://localhost:4200/projectImage');
+            req.send(this.state.logoData,
+                    this.state.bannerData);
+
+            window.location.reload();
+
+        })
 
     }
 
@@ -118,56 +133,121 @@ class NewProjectForm extends Component {
                     <ul>
                         <div id='rightNewProject'>
                             <label>Project Logo</label>
-                            <label htmlFor="projectLogo" className='labelInput'>Import logo</label>
+                            <label htmlFor="projectLogo" className='labelInput' id='projectLogoLabel'>Import logo</label>
                             <input
                                 className='inputProject projectHide'
                                 type='file'
                                 name='projectLogo'
                                 id='projectLogo'
-                                value={this.state.projectLogo}
-                                onChange={e => this.setState({projectLogo: e.target.value}, () => {
-                                    console.log(this.state.projectLogo)
-                                })}
-                                placeholder='Project logo'
+                                onChange={e => {
+                                    
+                                    const formData = new FormData();
+                                    const files = document.querySelector('[name=projectLogo]').files;
+
+                                    const filename = files[0].name.split('.')[0]
+
+                                    const rename = this.state.projectName+'-'+filename+'-logo.png';
+
+                                    Object.defineProperty(files[0], 'name', {
+                                        writable: true,
+                                        value: rename
+                                      });
+
+                                    console.log(files[0])
+
+                                    formData.append('files[]', files[0]);
+
+                                    this.setState({projectLogo: 'http://localhost:4200/images/projectImage/'+rename,
+                                                    logoData: formData}, () => {
+                                        document.getElementById('projectLogoLabel').innerHTML = rename;
+                                    })
+                                }}
                             />
                             <label>Project Banner</label>
-                            <label htmlFor="projectBanner" className='labelInput'>Import banner</label>
+                            <label htmlFor="projectBanner" className='labelInput' id='projectBannerLabel'>Import banner</label>
                             <input
                                 className='inputProject projectHide'
-                                type='text'
+                                type='file'
                                 name='projectBanner'
                                 id='projectBanner'
-                                value={this.state.projectBanner}
-                                onChange={e => this.setState({projectBanner: e.target.value}, () => {
-                                    console.log(this.state.projectBanner)
-                                })}
-                                placeholder='Project banner'
+                                onChange={e => {
+                                    
+                                    const formData = new FormData();
+                                    const files = document.querySelector('[name=projectBanner]').files;
+
+                                    const filename = files[0].name.split('.')[0]
+
+                                    const rename = this.state.projectName+'-'+filename+'-banner.png';
+
+                                    Object.defineProperty(files[0], 'name', {
+                                        writable: true,
+                                        value: rename
+                                      });
+
+                                    formData.append('files[]', files[0]);
+
+                                    this.setState({projectBanner: 'http://localhost:4200/images/projectImage/'+rename,
+                                                    bannerData: formData}, () => {
+                                        document.getElementById('projectBannerLabel').innerHTML = rename;
+                                    })
+                                }}
                             />
                             <label>Project Thumb</label>
-                            <label htmlFor="projectThumb" className='labelInput'>Import thumb</label>
+                            <label htmlFor="projectThumb" className='labelInput' id='projectThumbLabel'>Import thumb</label>
                             <input
                                 className='inputProject projectHide'
-                                type='text'
+                                type='file'
                                 name='projectThumb'
                                 id='projectThumb'
-                                value={this.state.projectThumb}
-                                onChange={e => this.setState({projectThumb: e.target.value}, () => {
-                                    console.log(this.state.projectThumb)
-                                })}
-                                placeholder='Project thumb'
+                                onChange={e => {
+                                    
+                                    const formData = new FormData();
+                                    const files = document.querySelector('[name=projectThumb]').files;
+                                    const filename = files[0].name.split('.')[0]
+
+                                    const rename = this.state.projectName+'-'+filename+'-thumb.png';
+
+                                    Object.defineProperty(files[0], 'name', {
+                                        writable: true,
+                                        value: rename
+                                      });
+
+                                    formData.append('files[]', files[0]);
+
+                                    this.setState({projectThumb: 'http://localhost:4200/images/projectImage/'+rename,
+                                                    thumbData: formData}, () => {
+                                        document.getElementById('projectThumbLabel').innerHTML = rename;
+                                    })
+                                }}
                             />
                             <label>Project Mockup</label>
-                            <label htmlFor="projectMockup" className='labelInput'>Import mockup</label>
+                            <label htmlFor="projectMockup" className='labelInput' id='projectMockupLabel'>Import mockup</label>
                             <input
                                 className='inputProject projectHide'
-                                type='text'
+                                type='file'
                                 name='projectMockup'
                                 id='projectMockup'
-                                value={this.state.projectMockup}
-                                onChange={e => this.setState({projectMockup: e.target.value}, () => {
-                                    console.log(this.state.projectMockup)
-                                })}
-                                placeholder='Project mockup'
+                                onChange={e => {
+                                    
+                                    const formData = new FormData();
+                                    const files = document.querySelector('[name=projectMockup]').files;
+
+                                    const filename = files[0].name.split('.')[0]
+
+                                    const rename = this.state.projectName+'-'+filename+'-mockup.png';
+
+                                    Object.defineProperty(files[0], 'name', {
+                                        writable: true,
+                                        value: rename
+                                      });
+
+                                    formData.append('files[]', files[0]);
+
+                                    this.setState({projectMockup: 'http://localhost:4200/images/projectImage/'+rename,
+                                                    mockupData: formData}, () => {
+                                        document.getElementById('projectMockupLabel').innerHTML = rename;
+                                    })
+                                }}
                             />
                             <label>Project Link</label>
                             <input
@@ -179,7 +259,7 @@ class NewProjectForm extends Component {
                                 onChange={e => this.setState({projectLink: e.target.value}, () => {
                                     console.log(this.state.projectLink)
                                 })}
-                                placeholder='Project name'
+                                placeholder='Project Link'
                             />
                         </div>
                     </ul>
