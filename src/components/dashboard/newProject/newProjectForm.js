@@ -6,6 +6,7 @@ import ProjectServices from '../../../services/projectServices';
 class NewProjectForm extends Component {
     constructor(props){
         super(props)
+        this.formData = new FormData();
         this.state = {
             projectName: '',
             projectKeywords: [],
@@ -45,14 +46,11 @@ class NewProjectForm extends Component {
             Link: this.state.projectLink,
         })
 
-        return new Promise((resolve, reject) => {
+        return new Promise(() => {
             const req = new XMLHttpRequest();
 
             req.open('POST', 'http://localhost:4200/projectImage');
-            req.send(this.state.logoData,
-                    this.state.bannerData);
-
-            window.location.reload();
+            req.send(this.formData);
 
         })
 
@@ -83,18 +81,14 @@ class NewProjectForm extends Component {
                                 name='projectName'
                                 id='projectName'
                                 value={this.state.projectName}
-                                onChange={e => this.setState({projectName: e.target.value}, () => {
-                                    console.log(this.state.projectName)
-                                })}
+                                onChange={e => this.setState({projectName: e.target.value})}
                                 placeholder='Project name'
                             />
                             <label>Project keywords</label>
                             <TagsInput 
                                 inputProps={{placeholder: 'keywords'}}
                                 value={this.state.projectKeywords} 
-                                onChange={e => this.setState({projectKeywords: e}, () => {
-                                    console.log(this.state.projectKeywords)
-                                })} 
+                                onChange={e => this.setState({projectKeywords: e})} 
                             />
                             <label>Project description</label>
                             <textarea
@@ -103,9 +97,7 @@ class NewProjectForm extends Component {
                                 name='projectDescription'
                                 id='projectDescription'
                                 value={this.state.projectDesc}
-                                onChange={e => this.setState({projectDesc: e.target.value}, () => {
-                                    console.log(this.state.projectDesc)
-                                })}
+                                onChange={e => this.setState({projectDesc: e.target.value})}
                                 placeholder='Project description'
                             />
                             <label>Project branding text</label>
@@ -115,18 +107,14 @@ class NewProjectForm extends Component {
                                 name='projectBrandingDesc'
                                 id='projectBrandingDesc'
                                 value={this.state.projectBranding}
-                                onChange={e => this.setState({projectBranding: e.target.value}, () => {
-                                    console.log(this.state.projectBranding)
-                                })}
+                                onChange={e => this.setState({projectBranding: e.target.value})}
                                 placeholder='Project branding'
                             />
                             <label>Project colors</label>
                             <TagsInput 
                                 inputProps={{placeholder: 'colors'}}
                                 value={this.state.projectColors} 
-                                onChange={e => this.setState({projectColors: e}, () => {
-                                    console.log(this.state.projectColors)
-                                })} 
+                                onChange={e => this.setState({projectColors: e})} 
                             />
                         </div>
                     </ul>
@@ -141,7 +129,6 @@ class NewProjectForm extends Component {
                                 id='projectLogo'
                                 onChange={e => {
                                     
-                                    const formData = new FormData();
                                     const files = document.querySelector('[name=projectLogo]').files;
 
                                     const filename = files[0].name.split('.')[0]
@@ -151,14 +138,11 @@ class NewProjectForm extends Component {
                                     Object.defineProperty(files[0], 'name', {
                                         writable: true,
                                         value: rename
-                                      });
+                                    });
 
-                                    console.log(files[0])
+                                    this.formData.append('Logo[]', files[0], rename)
 
-                                    formData.append('files[]', files[0]);
-
-                                    this.setState({projectLogo: 'http://localhost:4200/images/projectImage/'+rename,
-                                                    logoData: formData}, () => {
+                                    this.setState({projectLogo: 'http://localhost:4200/images/projectImage/'+rename }, () => {
                                         document.getElementById('projectLogoLabel').innerHTML = rename;
                                     })
                                 }}
@@ -172,7 +156,6 @@ class NewProjectForm extends Component {
                                 id='projectBanner'
                                 onChange={e => {
                                     
-                                    const formData = new FormData();
                                     const files = document.querySelector('[name=projectBanner]').files;
 
                                     const filename = files[0].name.split('.')[0]
@@ -182,12 +165,11 @@ class NewProjectForm extends Component {
                                     Object.defineProperty(files[0], 'name', {
                                         writable: true,
                                         value: rename
-                                      });
+                                    });
 
-                                    formData.append('files[]', files[0]);
+                                    this.formData.append('banner[]', files[0], rename)
 
-                                    this.setState({projectBanner: 'http://localhost:4200/images/projectImage/'+rename,
-                                                    bannerData: formData}, () => {
+                                    this.setState({projectBanner: 'http://localhost:4200/images/projectImage/'+rename }, () => {
                                         document.getElementById('projectBannerLabel').innerHTML = rename;
                                     })
                                 }}
@@ -201,7 +183,6 @@ class NewProjectForm extends Component {
                                 id='projectThumb'
                                 onChange={e => {
                                     
-                                    const formData = new FormData();
                                     const files = document.querySelector('[name=projectThumb]').files;
                                     const filename = files[0].name.split('.')[0]
 
@@ -210,12 +191,11 @@ class NewProjectForm extends Component {
                                     Object.defineProperty(files[0], 'name', {
                                         writable: true,
                                         value: rename
-                                      });
+                                    });
 
-                                    formData.append('files[]', files[0]);
+                                    this.formData.append('thumb[]', files[0], rename)
 
-                                    this.setState({projectThumb: 'http://localhost:4200/images/projectImage/'+rename,
-                                                    thumbData: formData}, () => {
+                                    this.setState({projectThumb: 'http://localhost:4200/images/projectImage/'+rename }, () => {
                                         document.getElementById('projectThumbLabel').innerHTML = rename;
                                     })
                                 }}
@@ -229,7 +209,6 @@ class NewProjectForm extends Component {
                                 id='projectMockup'
                                 onChange={e => {
                                     
-                                    const formData = new FormData();
                                     const files = document.querySelector('[name=projectMockup]').files;
 
                                     const filename = files[0].name.split('.')[0]
@@ -239,12 +218,11 @@ class NewProjectForm extends Component {
                                     Object.defineProperty(files[0], 'name', {
                                         writable: true,
                                         value: rename
-                                      });
+                                    });
 
-                                    formData.append('files[]', files[0]);
+                                    this.formData.append('mockup[]', files[0], rename)
 
-                                    this.setState({projectMockup: 'http://localhost:4200/images/projectImage/'+rename,
-                                                    mockupData: formData}, () => {
+                                    this.setState({projectMockup: 'http://localhost:4200/images/projectImage/'+rename }, () => {
                                         document.getElementById('projectMockupLabel').innerHTML = rename;
                                     })
                                 }}
@@ -256,9 +234,7 @@ class NewProjectForm extends Component {
                                 name='projectLink'
                                 id='projectLink'
                                 value={this.state.projectLink}
-                                onChange={e => this.setState({projectLink: e.target.value}, () => {
-                                    console.log(this.state.projectLink)
-                                })}
+                                onChange={e => this.setState({projectLink: e.target.value})}
                                 placeholder='Project Link'
                             />
                         </div>
