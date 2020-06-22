@@ -76,6 +76,10 @@ button {
   flex-direction: row;
 }
 
+.invisible {
+  display: none;
+}
+
 .react-tagsinput {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -1228,6 +1232,41 @@ button {
 }
 #newProjectContainer #formProjectContainer #formProjectCard #formProject form #formButtonContainer button:hover {
   background-color: #2a69ab;
+}
+
+header {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+header #bottomButton {
+  display: flex;
+  flex-direction: row;
+  width: 97vw;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 2em;
+  flex-wrap: nowrap;
+}
+header #bottomButton .divider {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+header #bottomButton .divider:last-child {
+  flex-direction: row-reverse;
+}
+header #bottomButton .divider #darkSwitch {
+  font-family: serif;
+  border: none;
+  padding: 8px 30px;
+  border-radius: 60px;
+  font-size: 1.1em;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=App.css.map */

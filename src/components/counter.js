@@ -111,7 +111,7 @@ class Counter extends Component {
 
   render() {
     return (
-      <div> textInComponent </div>
+      <div className='invisible'> </div>
     );
   }
 }

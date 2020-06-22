@@ -1,4 +1,4 @@
-// Variables //
+// Variables dashboard //
 
     $colw: #fff;
     $colg: #EBEAF3;
@@ -86,6 +86,10 @@
         width: 100vw;
         height: 100vh;
         flex-direction: row;
+    }
+
+    .invisible{
+        display: none;
     }
 
 // Reset CSS //
@@ -1470,3 +1474,48 @@
     }
 
 // New Project //
+
+// Portfolio //
+
+    header{
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+
+        #bottomButton{
+            display: flex;
+            flex-direction: row;
+            width: 97vw;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 2em;
+            flex-wrap: nowrap;
+
+            .divider{
+                display: flex;
+                flex-direction: row;
+                width: 50%;
+
+                &:last-child{
+                  flex-direction: row-reverse;  
+                }
+
+                #darkSwitch{
+                    font-family: serif;
+                    border: none;
+                    padding: 8px 30px;
+                    border-radius: 60px;
+                    font-size: 1.1em;
+                    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+    }
+
+// Portfolio //
