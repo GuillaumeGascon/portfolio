@@ -5,7 +5,7 @@
     $colp: #205082;
     $colb: #2e2d35;
     $cols: #0092ff;
-    $colc: #c1c6eb;
+    $colc: #050505;
 
 // Variables //
 
@@ -1478,39 +1478,155 @@
 // Portfolio //
 
     header{
-        display: flex;
+        display: block;
         position: relative;
         width: 100vw;
         height: 100vh;
 
-        #bottomButton{
-            display: flex;
-            flex-direction: row;
-            width: 97vw;
-            margin: 0 auto;
+        .loader{
+            top: 50%;
+            left: 50%;
             position: absolute;
-            bottom: 0;
-            left: 0;
-            margin-bottom: 2em;
-            flex-wrap: nowrap;
+        }
 
-            .divider{
-                display: flex;
-                flex-direction: row;
-                width: 50%;
+        .fadeContainer{
+            display: block;
+            flex-direction: column;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
 
-                &:last-child{
-                  flex-direction: row-reverse;  
+            // Menu //
+
+                #topNav{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100vw;
+                    height: 75px;
+
+                    #topNavWrapper{
+                        display: flex;
+                        width: 98%;
+                        height: 100%;
+                        align-items: center;
+
+                        #logoTopNav{
+                            display: block;
+                            width: 2.5%;
+    
+                            img{
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+
+                        #linkWrapper{
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            height: 100%;
+                            align-items: center;
+                            margin-left: 2%;
+
+                            a{
+
+                                font-size: 1.2em;
+                                font-weight: 600;
+
+                                &:last-child{
+                                    margin-left: 30%;
+                                }
+                            }
+                        }
+
+                    }
+
                 }
 
-                #darkSwitch{
-                    font-family: serif;
-                    border: none;
-                    padding: 8px 30px;
-                    border-radius: 60px;
-                    font-size: 1.1em;
-                    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-                    cursor: pointer;
+            // Menu //
+
+
+            #bottomButton{
+                display: flex;
+                flex-direction: row;
+                width: 95vw;
+                position: absolute;
+                bottom: 0;
+                left: 2.5vw;
+                margin-bottom: 2em;
+                flex-wrap: nowrap;
+
+                .divider{
+                    display: flex;
+                    flex-direction: row;
+                    width: 50%;
+                    position: relative;
+
+                    &:last-child{
+                    flex-direction: row-reverse;  
+                    }
+
+                    .checkIconSwitch{
+                        margin: 4px;
+                    }
+
+                    #colorPicker{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        border: none;
+                        padding: 5px 10px;
+                        border-radius: 60px;
+                        cursor: pointer;
+
+                        span{
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 10px;
+                            margin-left: 0.5em;
+                        }
+                    }
+
+                    .colorList{
+                        width: 7%;
+                        display: flex;
+                        flex-direction: column-reverse;
+                        position: absolute;
+                        bottom: 3vh;
+
+                        .buttonLine{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            padding-bottom: 30%;
+                            width: 100%;
+
+                            button{
+                                cursor: pointer;
+                                width: 100%;
+                                padding: 5px 10px;
+                                border-radius: 60px;
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                                align-items: center;
+                                border: none;
+
+                                span{
+                                    display: block;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 10px;
+                                    margin-right: 20%;
+                                }
+                            }
+                        }
+                    }
+
                 }
 
             }

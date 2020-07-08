@@ -193,7 +193,7 @@ button {
   margin-left: 2%;
 }
 #formStyle #title #textTitle p {
-  color: #c1c6eb;
+  color: #050505;
   line-height: 1.1em;
   font-size: 1.6em;
   font-weight: 800;
@@ -201,7 +201,7 @@ button {
 #formStyle #title #textTitle p b {
   color: #EBEAF3;
   text-transform: uppercase;
-  text-shadow: 1px 0 0 #c1c6eb, -1px 0 0 #c1c6eb, 0 1px 0 #c1c6eb, 0 -1px 0 #c1c6eb, 0.5px 0.5px #c1c6eb, -0.5px -0.5px 0 #c1c6eb, 0.5px -0.5px 0 #c1c6eb, -0.5px 0.5px 0 #c1c6eb;
+  text-shadow: 1px 0 0 #050505, -1px 0 0 #050505, 0 1px 0 #050505, 0 -1px 0 #050505, 0.5px 0.5px #050505, -0.5px -0.5px 0 #050505, 0.5px -0.5px 0 #050505, -0.5px 0.5px 0 #050505;
 }
 #formStyle form {
   width: 50%;
@@ -272,7 +272,7 @@ button {
   width: 50%;
 }
 #formStyle #downLinkForm a {
-  color: #c1c6eb;
+  color: #050505;
 }
 #formStyle #downLinkForm a:hover {
   color: #205082;
@@ -488,7 +488,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  color: #c1c6eb;
+  color: #050505;
   opacity: 0;
   background-color: rgba(46, 45, 53, 0.5);
   cursor: pointer;
@@ -587,7 +587,7 @@ button {
   padding-top: 2%;
 }
 #dashContent #dashProjectCount #projectCountContainer #countUser #countUsername {
-  color: #c1c6eb;
+  color: #050505;
   text-align: center;
   font-size: 1.4em;
   font-weight: 600;
@@ -649,7 +649,7 @@ button {
   margin-left: 3%;
   margin-top: 12px;
   font-size: 1.2em;
-  color: #c1c6eb;
+  color: #050505;
   font-weight: 400;
   border-bottom: 1px solid #EBEAF3;
   padding-bottom: 5px;
@@ -951,7 +951,7 @@ button {
   margin-top: 5%;
   margin-bottom: 5%;
   font-size: 1.2em;
-  color: #c1c6eb;
+  color: #050505;
   font-weight: 400;
   border-bottom: 1px solid #EBEAF3;
   padding-bottom: 2%;
@@ -1084,7 +1084,7 @@ button {
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 1.2em;
-  color: #c1c6eb;
+  color: #050505;
   font-weight: 400;
   border-bottom: 1px solid #EBEAF3;
   padding-bottom: 10px;
@@ -1235,38 +1235,130 @@ button {
 }
 
 header {
-  display: flex;
+  display: block;
   position: relative;
   width: 100vw;
   height: 100vh;
 }
-header #bottomButton {
+header .loader {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+header .fadeContainer {
+  display: block;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+header .fadeContainer #topNav {
   display: flex;
   flex-direction: row;
-  width: 97vw;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+}
+header .fadeContainer #topNav #topNavWrapper {
+  display: flex;
+  width: 98%;
+  height: 100%;
+  align-items: center;
+}
+header .fadeContainer #topNav #topNavWrapper #logoTopNav {
+  display: block;
+  width: 2.5%;
+}
+header .fadeContainer #topNav #topNavWrapper #logoTopNav img {
+  display: block;
+  width: 100%;
+}
+header .fadeContainer #topNav #topNavWrapper #linkWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  align-items: center;
+  margin-left: 2%;
+}
+header .fadeContainer #topNav #topNavWrapper #linkWrapper a {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+header .fadeContainer #topNav #topNavWrapper #linkWrapper a:last-child {
+  margin-left: 30%;
+}
+header .fadeContainer #bottomButton {
+  display: flex;
+  flex-direction: row;
+  width: 95vw;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 2.5vw;
   margin-bottom: 2em;
   flex-wrap: nowrap;
 }
-header #bottomButton .divider {
+header .fadeContainer #bottomButton .divider {
   display: flex;
   flex-direction: row;
   width: 50%;
+  position: relative;
 }
-header #bottomButton .divider:last-child {
+header .fadeContainer #bottomButton .divider:last-child {
   flex-direction: row-reverse;
 }
-header #bottomButton .divider #darkSwitch {
-  font-family: serif;
+header .fadeContainer #bottomButton .divider .checkIconSwitch {
+  margin: 4px;
+}
+header .fadeContainer #bottomButton .divider #colorPicker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   border: none;
-  padding: 8px 30px;
+  padding: 5px 10px;
   border-radius: 60px;
-  font-size: 1.1em;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+header .fadeContainer #bottomButton .divider #colorPicker span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin-left: 0.5em;
+}
+header .fadeContainer #bottomButton .divider .colorList {
+  width: 7%;
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  bottom: 3vh;
+}
+header .fadeContainer #bottomButton .divider .colorList .buttonLine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 30%;
+  width: 100%;
+}
+header .fadeContainer #bottomButton .divider .colorList .buttonLine button {
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: none;
+}
+header .fadeContainer #bottomButton .divider .colorList .buttonLine button span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  margin-right: 20%;
 }
 
 /*# sourceMappingURL=App.css.map */

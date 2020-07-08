@@ -41,18 +41,9 @@ class DashBanner extends Component {
 
     componentDidMount(){
 
-        var d = new Date();
-        var n = d.getHours();
-
-        if(n >= 23 || n <= 7){
-            this.setState({banner: this.readCookie('sessionBanner')}, () => {
+        this.setState({banner: this.readCookie('sessionBanner')}, () => {
    
-            })
-        }else{
-            this.setState({banner: 'http://localhost:4200/images/banner/default.jpg'}, () => {
-
-            })
-        }
+        })
     }
   render() {
 
