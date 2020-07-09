@@ -11,6 +11,7 @@ import LogoYellow from '../img/LogoYellow.png';
 
 import Counter from '../components/counter';
 import Menu from '../components/portfolio/menuLink';
+import Carousel from '../components/portfolio/carousel';
 
 class Content extends Component {
   constructor(){
@@ -186,6 +187,10 @@ class Content extends Component {
                   light={this.state.light}
                   dark={this.state.dark}
                 />
+
+                <div className='carouselContainer'>
+                  <Carousel/>
+                </div>
                 
                 <div id='bottomButton'>
                   <div className='divider'>

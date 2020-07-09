@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import NewProject from './pages/newProject';
+import Works from './pages/Works';
 
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path='/' component={Content}/>
+            <Route exact path='/works/' component={Works}/>
             <Route path='/dir/secret/login' component={Login} />
             {/**<Route path="/dir/secret/register" component={Register} />**/}  
             <Route exact path="/dir/secret/dashboard" component={Dashboard} />

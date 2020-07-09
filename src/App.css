@@ -1252,43 +1252,6 @@ header .fadeContainer {
   width: 100vw;
   height: 100vh;
 }
-header .fadeContainer #topNav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 75px;
-}
-header .fadeContainer #topNav #topNavWrapper {
-  display: flex;
-  width: 98%;
-  height: 100%;
-  align-items: center;
-}
-header .fadeContainer #topNav #topNavWrapper #logoTopNav {
-  display: block;
-  width: 2.5%;
-}
-header .fadeContainer #topNav #topNavWrapper #logoTopNav img {
-  display: block;
-  width: 100%;
-}
-header .fadeContainer #topNav #topNavWrapper #linkWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  height: 100%;
-  align-items: center;
-  margin-left: 2%;
-}
-header .fadeContainer #topNav #topNavWrapper #linkWrapper a {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-header .fadeContainer #topNav #topNavWrapper #linkWrapper a:last-child {
-  margin-left: 30%;
-}
 header .fadeContainer #bottomButton {
   display: flex;
   flex-direction: row;
@@ -1359,6 +1322,83 @@ header .fadeContainer #bottomButton .divider .colorList .buttonLine button span 
   height: 20px;
   border-radius: 10px;
   margin-right: 20%;
+}
+
+#topNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 75px;
+}
+#topNav #topNavWrapper {
+  display: flex;
+  width: 98%;
+  height: 100%;
+  align-items: center;
+}
+#topNav #topNavWrapper #topNavLeftWrapper {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
+#topNav #topNavWrapper #topNavLeftWrapper #logoTopNav {
+  display: block;
+  width: 5%;
+}
+#topNav #topNavWrapper #topNavLeftWrapper #logoTopNav img {
+  display: block;
+  width: 100%;
+}
+#topNav #topNavWrapper #topNavLeftWrapper #linkWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  align-items: center;
+  margin-left: 5%;
+}
+#topNav #topNavWrapper #topNavLeftWrapper #linkWrapper a {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+#topNav #topNavWrapper #topNavLeftWrapper #linkWrapper a:last-child {
+  margin-left: 35%;
+}
+#topNav #topNavWrapper #topNavRightWrapper {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  flex-direction: row-reverse;
+}
+#topNav #topNavWrapper #topNavRightWrapper #socialWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 15%;
+  justify-content: space-between;
+  align-items: center;
+}
+#topNav #topNavWrapper #topNavRightWrapper #socialWrapper a {
+  font-size: 1.2em;
+}
+#topNav #topNavWrapper #topNavRightWrapper #socialWrapper a svg {
+  transition: all 0.2s ease-in-out;
+}
+
+#worksContainer {
+  display: flex;
+  width: 100vw;
+}
+
+.carouselContainer {
+  display: flex;
+  width: 100vw;
+  height: 82%;
 }
 
 /*# sourceMappingURL=App.css.map */

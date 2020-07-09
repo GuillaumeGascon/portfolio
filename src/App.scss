@@ -1496,58 +1496,6 @@
             width: 100vw;
             height: 100vh;
 
-            // Menu //
-
-                #topNav{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100vw;
-                    height: 75px;
-
-                    #topNavWrapper{
-                        display: flex;
-                        width: 98%;
-                        height: 100%;
-                        align-items: center;
-
-                        #logoTopNav{
-                            display: block;
-                            width: 2.5%;
-    
-                            img{
-                                display: block;
-                                width: 100%;
-                            }
-                        }
-
-                        #linkWrapper{
-                            display: flex;
-                            flex-direction: row;
-                            flex-wrap: nowrap;
-                            height: 100%;
-                            align-items: center;
-                            margin-left: 2%;
-
-                            a{
-
-                                font-size: 1.2em;
-                                font-weight: 600;
-
-                                &:last-child{
-                                    margin-left: 30%;
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-
-            // Menu //
-
-
             #bottomButton{
                 display: flex;
                 flex-direction: row;
@@ -1633,5 +1581,110 @@
 
         }
     }
+
+    // Menu //
+
+        #topNav{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 75px;
+
+            #topNavWrapper{
+                display: flex;
+                width: 98%;
+                height: 100%;
+                align-items: center;
+
+                #topNavLeftWrapper{
+                    display: flex;
+                    width: 50%;
+                    height: 100%;
+                    align-items: center;
+
+                    #logoTopNav{
+                        display: block;
+                        width: 5%;
+
+                        img{
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+
+                    #linkWrapper{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        height: 100%;
+                        align-items: center;
+                        margin-left: 5%;
+
+                        a{
+
+                            font-size: 1.2em;
+                            font-weight: 600;
+
+                            &:last-child{
+                                margin-left: 35%;
+                            }
+                        }
+                    }
+
+                }
+
+                #topNavRightWrapper{
+                    display: flex;
+                    align-items: center;
+                    width: 50%;
+                    height: 100%;
+                    flex-direction: row-reverse;
+
+                    #socialWrapper{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        height: 100%;
+                        width: 15%;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        a{
+                            font-size: 1.2em;
+
+                            svg{
+                                transition: all 0.2s ease-in-out;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    // Menu //
+
+    // Works //
+
+        #worksContainer{
+            display: flex;
+            width: 100vw;
+        }
+
+    // Works //
+
+    // Carousel //
+
+        .carouselContainer{
+            display: flex;
+            width: 100vw;
+            height: 82%;
+        }
+
+    // Carousel //
 
 // Portfolio //
