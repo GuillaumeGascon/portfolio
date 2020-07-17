@@ -1400,5 +1400,117 @@ header .fadeContainer #bottomButton .divider .colorList .buttonLine button span 
   width: 100vw;
   height: 82%;
 }
+.carouselContainer #carouselWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.carouselContainer #carouselWrapper .carouselItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 70%;
+  overflow: hidden;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft h2 {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 9em;
+  text-shadow: "rgba(0,0,0,0.3) 5px 0 20px";
+  padding: 0;
+  margin: 0;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft .carouselTagWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  padding-top: 3%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft .carouselTagWrapper p {
+  margin-right: 10%;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft .carouselDiscoverWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  padding-top: 10%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemLeft .carouselDiscoverWrapper button {
+  margin-right: 10%;
+  font-family: serif;
+  font-size: 1.2em;
+  padding: 10px 25px;
+  border-radius: 60px;
+  border: none;
+  color: #2e2d35;
+  font-weight: 800;
+  text-shadow: "rgba(0,0,0,0.3) 5px 0 20px";
+  cursor: pointer;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 45%;
+  height: 100%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 110%;
+  height: 100%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition .carouselItemRightWrapper {
+  display: block;
+  width: 100%;
+  height: 75%;
+  position: relative;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition .carouselItemRightWrapper img {
+  display: block;
+  width: 100%;
+  border-radius: 5px 120px 5px 120px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition .carouselItemRightWrapper .carouselItemRightProjectText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 10%;
+  right: 3%;
+  width: 75%;
+  height: 50%;
+  border-radius: 120px 5px 120px 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition .carouselItemRightWrapper .carouselItemRightProjectText .carouselItemRightTextContainer {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 70%;
+}
+.carouselContainer #carouselWrapper .carouselItems .carouselItemRight .carouselItemRightPosition .carouselItemRightWrapper .carouselItemRightProjectText .carouselItemRightTextContainer span {
+  font-size: 1.8em;
+  text-align: justify;
+  font-family: serif;
+}
 
 /*# sourceMappingURL=App.css.map */

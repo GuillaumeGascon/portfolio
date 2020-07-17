@@ -1683,6 +1683,137 @@
             display: flex;
             width: 100vw;
             height: 82%;
+
+            #carouselWrapper{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+
+                .carouselItems{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    width: 90%;
+                    height: 100%;
+
+                    .carouselItemLeft{
+                        display: flex;
+                        flex-direction: column;
+                        width: 55%;
+                        height: 70%;
+                        overflow: hidden;
+
+                        h2{
+                            width: 100%;
+                            text-transform: uppercase;
+                            font-size: 9em;
+                            text-shadow: 'rgba(0,0,0,0.3) 5px 0 20px';
+                            padding: 0;
+                            margin: 0;
+
+                        }
+
+                        .carouselTagWrapper{
+                            display: flex;
+                            flex-direction: row-reverse;
+                            width: 100%;
+                            padding-top: 3%;
+
+                            p{
+                                margin-right: 10%;
+                                font-size: 1.2em;
+                                font-weight: 800;
+                            }
+                        }
+
+                        .carouselDiscoverWrapper{
+
+                            display: flex;
+                            flex-direction: row-reverse;
+                            width: 100%;
+                            padding-top: 10%;
+
+                            button{
+                                margin-right: 10%;
+                                font-family: serif;
+                                font-size: 1.2em;
+                                padding: 10px 25px;
+                                border-radius: 60px;
+                                border: none;
+                                color: $colb;
+                                font-weight: 800;
+                                text-shadow: 'rgba(0,0,0,0.3) 5px 0 20px';
+                                cursor: pointer;
+                            }
+                        }
+
+                    }
+
+                    .carouselItemRight{
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        width: 45%;
+                        height: 100%;
+
+                        .carouselItemRightPosition{
+                            display: flex;
+                            position: absolute;
+                            align-items: center;
+                            top: 0;
+                            right: 0;
+                            width: 110%;
+                            height: 100%;
+
+                            .carouselItemRightWrapper{
+                                display: block;
+                                width: 100%;
+                                height: 75%;
+                                position: relative;
+
+                                img{
+                                    display: block;
+                                    width: 100%;
+                                    border-radius: 5px 120px 5px 120px;
+                                    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+                                }
+
+                                .carouselItemRightProjectText{
+                                    position: absolute;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    bottom: 10%;
+                                    right: 3%;
+                                    width: 75%;
+                                    height: 50%;
+                                    border-radius: 120px 5px 120px 5px;
+                                    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+                                    .carouselItemRightTextContainer{
+                                        display: flex;
+                                        align-items: center;
+                                        width: 80%;
+                                        height: 70%;
+
+                                        span{
+                                            font-size: 1.8em;
+                                            text-align: justify;
+                                            font-family: serif;
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
     // Carousel //

@@ -36,8 +36,10 @@ class Menu extends Component {
         }
     }
     
-    componentDidUpdate(){
-        this.componentDidMount()
+    componentDidUpdate(prevProps){
+        if(this.props.color !== prevProps.color || this.props.dark !== prevProps.dark || this.props.light !== prevProps.light){
+            this.componentDidMount();
+        }
     }
 
   render() {

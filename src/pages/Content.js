@@ -25,8 +25,8 @@ class Content extends Component {
         accentColor: [
           {
             id: 1,
-            color: '#205082',
-            colorSecond: '#0092ff',
+            color: '#0092ff',
+            colorSecond: '#205082',
             colorThird: '#c1c6eb',
             colorGrey: '#EBEAF3',
             colorDark: '#2e2d35',
@@ -189,7 +189,15 @@ class Content extends Component {
                 />
 
                 <div className='carouselContainer'>
-                  <Carousel/>
+                  <Carousel
+                    color={this.readCookie('activeColor')} 
+                    colorSecond={pickColor.colorSecond}
+                    colorThird={pickColor.colorThird}
+                    colorGrey={pickColor.colorGrey}
+                    colorDark={pickColor.colorDark}
+                    light={this.state.light}
+                    dark={this.state.dark}
+                  />
                 </div>
                 
                 <div id='bottomButton'>
